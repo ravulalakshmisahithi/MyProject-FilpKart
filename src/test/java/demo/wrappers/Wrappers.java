@@ -32,7 +32,7 @@ public class Wrappers {
         }
     }
 
-    public static void popup (WebDriver driver){
+    public static void popup (WebDriver driver){  // this is optional as screen runs in back end 
         try{
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
            WebElement popup = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[@role='button']")));
@@ -50,9 +50,9 @@ public class Wrappers {
 
     public static void sendKeys(WebDriver driver, By locator, String text){
     WebElement element = driver.findElement(locator);
-    element.sendKeys(Keys.CONTROL+"a");
+    element.sendKeys(Keys.CONTROL+"a");    // Using this as clear is not working
     element.sendKeys(Keys.DELETE);
-    element.sendKeys(text, Keys.ENTER);
+    element.sendKeys(text, Keys.ENTER);   
 }
 
 public static void explicitWait(WebDriver driver, String Text, int duration){
@@ -126,10 +126,10 @@ Set<Integer> reviewsNumbers = new HashSet<>();
     }
 
 List<Integer> uniqueReviews = new ArrayList<>(reviewsNumbers);
-Collections.sort(uniqueReviews, Collections.reverseOrder());
+Collections.sort(uniqueReviews, Collections.reverseOrder());   // to sort in desc order 
 System.out.println("Unique review numbers in descending order: " + uniqueReviews);
 
-NumberFormat numberformat = NumberFormat.getInstance(Locale.US);
+NumberFormat numberformat = NumberFormat.getInstance(Locale.US);   // to add commas (ex: 1,000)
 LinkedHashMap<String, String> reviewsMap = new LinkedHashMap<>();
 for (int i =0; i <5; i++){
     String formattedReview = "(" + numberformat.format(uniqueReviews.get(i)) + ")";

@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 
-
 // import io.github.bonigarcia.wdm.WebDriverManager;
 import demo.wrappers.Wrappers;
 
@@ -35,8 +34,9 @@ public class TestCases {
     {
         System.setProperty("java.util.logging.config.file", "logging.properties");
 
-        // NOT NEEDED FOR SELENIUM MANAGER
+          // NOT NEEDED FOR SELENIUM MANAGER
         // WebDriverManager.chromedriver().timeout(30).setup();
+
 
         ChromeOptions options = new ChromeOptions();
         LoggingPreferences logs = new LoggingPreferences();
@@ -48,13 +48,14 @@ public class TestCases {
 
         System.setProperty(ChromeDriverService.CHROME_DRIVER_LOG_PROPERTY, "build/chromedriver.log"); 
 
+
         driver = new ChromeDriver(options);
 
         driver.manage().window().maximize();
     }
 
 @Test
-public void TestcaseO1 () throws InterruptedException{
+public void testCase01() throws InterruptedException{
     driver.navigate().to("https://www.flipkart.com/");
     Wrappers.implictwait(driver, 10);
     Wrappers.popup(driver);
@@ -70,7 +71,7 @@ public void TestcaseO1 () throws InterruptedException{
 }
 
 @Test
-public void TestcaseO2 () throws InterruptedException{
+public void testCase02() throws InterruptedException{
     Wrappers.sendKeys(driver, By.xpath("//form[@action='/search']//input[@name='q']"), "iPhone");
     Thread.sleep(1000);
     Wrappers.explicitWait(driver, "iPhone", 10);
@@ -83,7 +84,7 @@ public void TestcaseO2 () throws InterruptedException{
 
 
 @Test
-public void TestcaseO3 () throws InterruptedException{
+public void testCase03() throws InterruptedException{
     Wrappers.sendKeys(driver, By.xpath("//form[@action='/search']//input[@name='q']"), "Coffee Mug");
     Thread.sleep(1000);
      Wrappers.explicitWait(driver, "Coffee", 10);
