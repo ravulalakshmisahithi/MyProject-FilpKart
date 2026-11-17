@@ -53,6 +53,48 @@ public class TestCases {
         driver.manage().window().maximize();
     }
 
+@Test
+public void TestcaseO1 () throws InterruptedException{
+    driver.navigate().to("https://www.flipkart.com/");
+    Wrappers.implictwait(driver, 10);
+    Wrappers.popup(driver);
+    Thread.sleep(1000);
+    Wrappers.sendKeys(driver, By.xpath("//form[@action='/search']//input[@name='q']"), "Washing Machine");
+    Thread.sleep(1000);
+    Wrappers.explicitWait(driver, "Washing", 10);
+    Thread.sleep(1000);
+    Wrappers.clickElement(driver, By.xpath("//div[text()='Popularity']"));
+    Thread.sleep(1000);
+  Wrappers.listOfElements(driver, By.xpath("//span[contains(@id, 'productRating')]"), 4);
+   Thread.sleep(1000);
+}
+
+@Test
+public void TestcaseO2 () throws InterruptedException{
+    Wrappers.sendKeys(driver, By.xpath("//form[@action='/search']//input[@name='q']"), "iPhone");
+    Thread.sleep(1000);
+    Wrappers.explicitWait(driver, "iPhone", 10);
+    Thread.sleep(1000);
+    Wrappers.clickElement(driver, By.xpath("//div[text()='Relevance']"));
+    Thread.sleep(1000);
+  Wrappers.listOfElementsfordiscountandTitles(driver, By.xpath("//div[@class='HQe8jr']"), By.xpath("//div[@class='HQe8jr']/ancestor::div[4]//div[@class='RG5Slk']"), 17);
+   Thread.sleep(1000);
+}
+
+
+@Test
+public void TestcaseO3 () throws InterruptedException{
+    Wrappers.sendKeys(driver, By.xpath("//form[@action='/search']//input[@name='q']"), "Coffee Mug");
+    Thread.sleep(1000);
+     Wrappers.explicitWait(driver, "Coffee", 10);
+    Thread.sleep(1000);
+    Wrappers.scroll(driver);
+    Wrappers.clickElement(driver, By.xpath("//div[contains(text(),'4')]/..//div[@class='ybaCDx']"));
+    Thread.sleep(1000);
+    Wrappers.PrintImageandTitles(driver, By.xpath("//span[@class='PvbNMB']"));
+    Thread.sleep(1000);
+}
+
     @AfterTest
     public void endTest()
     {
